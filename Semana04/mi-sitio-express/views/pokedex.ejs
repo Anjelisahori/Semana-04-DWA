@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <style>
+    .btn-container {
+      margin-top: 30px; 
+      text-align: center; 
+    }
+  </style>
+</head>
+<body class="container">
+  <h3 class="center-align">Pokédex</h3>
+
+  <form action="/pokedex" method="POST">
+    <div class="input-field">
+      <input id="nombre" type="text" name="nombre" required>
+      <label for="nombre">Nombre</label>
+    </div>
+
+    <div class="input-field">
+      <input id="tipo" type="text" name="tipo" required>
+      <label for="tipo">Tipo</label>
+    </div>
+
+    <div class="input-field">
+      <input id="nivel" type="number" name="nivel" required>
+      <label for="nivel">Nivel</label>
+    </div>
+
+    <div class="input-field">
+      <input id="habilidad" type="text" name="habilidad" required>
+      <label for="habilidad">Habilidad</label>
+    </div>
+
+    <div class="input-field">
+      <input id="descripcion" type="text" name="descripcion" required>
+      <label for="descripcion">Descripción</label>
+    </div>
+
+    <button type="submit" class="btn">Agregar Pokémon</button>
+  </form>
+
+  <% if (pokemons.length > 0) { %>
+    <h5 class="center-align">Listado de Pokémon</h5>
+    <table class="highlight">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Tipo</th>
+          <th>Nivel</th>
+          <th>Habilidad</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% pokemons.forEach(p => { %>
+          <tr>
+            <td><%= p.nombre %></td>
+            <td><%= p.tipo %></td>
+            <td><%= p.nivel %></td>
+            <td><%= p.habilidad %></td>
+            <td><%= p.descripcion %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+
+  <div class="btn-container">
+    <a href="/" class="btn grey">Volver al inicio</a>
+  </div>
+
+  <!-- Scripts de Materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      M.updateTextFields(); 
+    });
+  </script>
+</body>
+</html>

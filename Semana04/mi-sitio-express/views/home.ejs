@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= title %></title>
+  <!-- MaterializeCSS -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    rel="stylesheet"
+  />
+  <!-- Estilos personalizados -->
+  <style>
+    nav {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .brand-logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #449ead !important;
+      padding-left: 10px;
+    }
+
+    nav ul li a {
+      color: #449ead !important;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #4eb7be !important;
+    }
+
+    .sidenav li a {
+      color: #449ead !important;
+      font-weight: 500;
+    }
+
+    .sidenav li a:hover {
+      color: #4eb7be !important;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: white;
+      padding-bottom: 40px;
+    }
+
+    main {
+      margin-top: 80px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Inicio</a>
+      <a href="#" data-target="mobile-menu" class="sidenav-trigger"
+        ><i class="material-icons" style="color:#449ead;">menu</i></a
+      >
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/about">Acerca de</a></li>
+        <li><a href="/contact">Contacto</a></li>
+        <li><a href="/admin">Administrar Mensajes</a></li>
+        <li><a href="/pokedex">Pokédex</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Navbar móvil -->
+  <ul class="sidenav" id="mobile-menu">
+    <li><a href="/about">Acerca de</a></li>
+    <li><a href="/contact">Contacto</a></li>
+    <li><a href="/admin">Administrar Mensajes</a></li>
+    <li><a href="/pokedex">Pokédex</a></li>
+  </ul>
+
+  <main class="container center-align">
+    <h3>Bienvenido a la Página de Inicio</h3>
+  </main>
+
+  <!-- Scripts de Materialize -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+  ></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var elems = document.querySelectorAll(".sidenav");
+      M.Sidenav.init(elems);
+    });
+  </script>
+</body>
+</html>
